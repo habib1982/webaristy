@@ -1,0 +1,155 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Animation */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #f06, #4e93ff, #ffcc00, #ff0066);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+/* Keyframes untuk latar belakang */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Flower container */
+.flower {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center;
+}
+
+/* Petal styles */
+.petal {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #ff69b4;  /* Warna petal bunga */
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: rotate 6s infinite linear;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Petal rotation animations */
+.petal-1 {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+
+.petal-2 {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    animation-delay: 1.5s;
+}
+
+.petal-3 {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 3s;
+}
+
+.petal-4 {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    animation-delay: 4.5s;
+}
+
+/* Flower center */
+.center {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: yellow;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.center p {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Rotate animation for petals */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hover effect */
+.flower:hover .petal {
+    transform: scale(1.1) rotate(15deg);
+    background-color: #ff1493; /* Change color on hover */
+}
+
+.flower:hover .center {
+    background-color: #ffd700; /* Change center color */
+}
+
+/* Explosion effect */
+.explosion .petal {
+    animation: explode 0.5s forwards;
+    opacity: 0;
+    transform: scale(1.5) rotate(720deg);
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(3) rotate(720deg);
+        opacity: 0;
+    }
+}
